@@ -1,12 +1,40 @@
 import './App.css';
-import Navbar from './components/Navbar';
 import Dashboard from './components/Dashboard';
+import { useEffect } from 'react';
+import Create from './components/Create';
+import Update from './components/Update';
+import {BrowserRouter,Routes,Route} from 'react-router-dom';
+import axios from 'axios';
+import { useDispatch} from 'react-redux';
+import { getUser } from './redux/userSlice';
+
+
 function App() {
+const dispatch=useDispatch();
+  useEffect(()=>{
+    const fetchData=async()=>{
+        try{
+            const response= await axios.get('http://localhost:5000/');
+           dispatch(getUser(response.data.data));
+            console.log(response);
+        }
+        catch(err){
+            console.log(err);
+        }
+    }
+    fetchData();
+   
+},[]);
+
   return (
-    <div className="App">
-    <Navbar/>
-    <Dashboard/>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<Dashboard/>}></Route>
+        <Route path='/create' element={<Create/>}></Route>
+        <Route path='/update/:id' element={<Update/>}></Route>
+      </Routes>
+    </BrowserRouter>
+    
   );
 }
 

@@ -1,3 +1,9 @@
+.app {
+    min-height:100vh;
+   padding: 1%;
+   background-color: rgb(161, 186, 186);
+  }
+
 .btn{
     margin: auto;
     text-align: center;
@@ -12,6 +18,7 @@
     border-radius: 20px;
     font-family: monospace;
     cursor: pointer;
+    text-decoration: none;
 }
 .btn:hover{
     opacity: 0.7;
@@ -23,7 +30,7 @@
     flex-direction: column;
     justify-content: center;
     justify-items: center;
-    width:600px;
+    width:1000px;
 }
 .header{
     color: rgb(224, 44, 116);
@@ -45,12 +52,27 @@
     font-family: monospace;
 }
 .info{
-    width: 60%;
+    width: 70%;
     display: flex;
     justify-content: space-between;
 }
 .option{
-    width: 30%;
+    width: 20%;
     display: flex;
     justify-content: space-between;
+}
+.form{
+    width: 600px;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    align-items: center;
+}
+.input{
+    width: 100%;
+    padding: 10px;
+    margin: 10px;
+    font-size: 20px;
+    font-weight: 600;
+    font-family: monospace;
 }
